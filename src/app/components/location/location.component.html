@@ -1,0 +1,40 @@
+<section id="location" class="visit">
+  <div class="wrap visit-grid">
+    <div class="details" appReveal>
+      <h2>Find the table</h2>
+
+      <dl>
+        <div>
+          <dt>Address</dt>
+          <dd>{{ restaurant.address }}</dd>
+        </div>
+        <div>
+          <dt>Phone</dt>
+          <dd><a [href]="restaurant.phoneHref">{{ restaurant.phone }}</a></dd>
+        </div>
+        <div>
+          <dt>Hours</dt>
+          <dd>{{ restaurant.hoursNote }} · {{ restaurant.hoursLabel }}</dd>
+        </div>
+        <div>
+          <dt>Parking</dt>
+          <dd>Ample car parking on site</dd>
+        </div>
+      </dl>
+
+      <div class="visit-actions">
+        <a class="btn btn--solid" [href]="restaurant.directionsHref" target="_blank" rel="noopener">Get Directions</a>
+        <a class="btn btn--line" [href]="restaurant.phoneHref">Call Now</a>
+      </div>
+    </div>
+
+    <div class="map-frame" appReveal>
+      <iframe
+        title="Map to Matsya Amazon Kitchens on Kurnool Road"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        [src]="restaurant.mapEmbedSrc">
+      </iframe>
+    </div>
+  </div>
+</section>

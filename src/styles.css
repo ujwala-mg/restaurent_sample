@@ -1,0 +1,104 @@
+:root {
+  --charcoal: #14110E;
+  --charcoal-soft: #1E1A15;
+  --cream: #F4EEE2;
+  --cream-dim: #E8DFCC;
+  --clay: #7A3E28;
+  --clay-dark: #5C2E1D;
+  --spice: #C1531B;
+  --gold: #C79A4B;
+  --line-dark: rgba(244,238,226,0.14);
+  --line-light: rgba(20,17,14,0.12);
+
+  --display: 'Fraunces', Georgia, serif;
+  --sans: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  margin: 0;
+  line-height: 1.02;
+}
+
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--sans); cursor: pointer; border: none; background: none; }
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 640px) {
+  .wrap { padding: 0 22px; }
+}
+
+@media (max-width: 900px) {
+  body { padding-bottom: 74px; }
+}
+
+:focus-visible {
+  outline: 2px solid var(--spice);
+  outline-offset: 3px;
+}
+
+/* ---- Shared reveal-on-scroll animation ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- Shared placeholder "photo" texture, used until real images land ---- */
+.ph {
+  position: relative;
+  background: var(--charcoal-soft);
+  overflow: hidden;
+}
+.ph::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.9;
+}
+.ph--charcoal::before { background: linear-gradient(160deg, #241D16, #14110E 70%); }
+.ph--clay::before { background: linear-gradient(160deg, #8C4A2F, #5C2E1D 75%); }
+.ph--gold::before { background: linear-gradient(160deg, #C79A4B, #8C6B33 75%); }
+.ph--cream::before { background: linear-gradient(160deg, #E8DFCC, #C9BC9C 75%); }
+.ph-label {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  color: rgba(244,238,226,0.85);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  z-index: 1;
+}
+.ph--cream .ph-label { color: rgba(20,17,14,0.7); }

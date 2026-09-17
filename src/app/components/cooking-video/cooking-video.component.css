@@ -1,0 +1,49 @@
+.cooking {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  background: var(--charcoal);
+  overflow: hidden;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+}
+
+.video, .video-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20,17,14,0.15) 0%, rgba(20,17,14,0.92) 100%);
+}
+
+.copy {
+  position: relative;
+  z-index: 1;
+  padding: 90px 0 80px;
+  max-width: 700px;
+}
+
+.copy h2 {
+  color: var(--cream);
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.copy p {
+  color: rgba(244,238,226,0.6);
+  font-size: 0.95rem;
+}
+
+.copy code {
+  color: var(--gold);
+  font-family: monospace;
+}

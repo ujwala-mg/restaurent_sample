@@ -1,0 +1,31 @@
+<section class="cooking">
+  <div class="media" appReveal>
+    <video
+      *ngIf="hasVideo"
+      class="video"
+      [poster]="posterSrc"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="none">
+      <source *ngIf="videoSrcMp4" [src]="videoSrcMp4" type="video/mp4">
+      <source *ngIf="videoSrcWebm" [src]="videoSrcWebm" type="video/webm">
+    </video>
+
+    <div class="video-placeholder ph ph--charcoal" *ngIf="!hasVideo">
+      <span class="ph-label">Cooking video pending — public/videos/</span>
+    </div>
+
+    <div class="scrim"></div>
+  </div>
+
+  <div class="wrap copy">
+    <h2>Made with fire.<br>Flavour. And a little patience.</h2>
+    <p>
+      A tandoor cooking video, biryani prep, or plating shot will render here
+      the moment a file lands in <code>public/videos/</code> — muted,
+      looping, and never louder than the room.
+    </p>
+  </div>
+</section>

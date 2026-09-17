@@ -1,0 +1,12 @@
+<section class="highway">
+  <div class="wrap">
+    <h2 class="title" appReveal>On the road?<br>Make your next stop delicious.</h2>
+
+    <div class="benefit-grid">
+      <article class="benefit" *ngFor="let b of benefits; let i = index" appReveal [style.transition-delay.ms]="i * 60">
+        <p class="b-title">{{ b.title }}</p>
+        <p class="b-detail">{{ b.detail }}</p>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+<section id="gallery" class="gallery">
+  <div class="wrap">
+    <h2 appReveal>A closer look.</h2>
+
+    <div class="grid">
+      <button
+        *ngFor="let g of items; let i = index"
+        class="tile ph"
+        [class.ph--charcoal]="g.tone === 'charcoal'"
+        [class.ph--clay]="g.tone === 'clay'"
+        [class.ph--gold]="g.tone === 'gold'"
+        [class.ph--cream]="g.tone === 'cream'"
+        [class.tile--tall]="g.span === 'tall'"
+        [class.tile--wide]="g.span === 'wide'"
+        appReveal
+        [style.transition-delay.ms]="i * 50"
+        (click)="open(g)"
+        [attr.aria-label]="'Open ' + g.label">
+        <span class="ph-label">{{ g.label }}</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="lightbox" *ngIf="lightbox" (click)="close()" role="dialog" aria-modal="true">
+    <div class="lightbox-frame ph"
+         [class.ph--charcoal]="lightbox.tone === 'charcoal'"
+         [class.ph--clay]="lightbox.tone === 'clay'"
+         [class.ph--gold]="lightbox.tone === 'gold'"
+         [class.ph--cream]="lightbox.tone === 'cream'">
+      <span class="ph-label">{{ lightbox.label }}</span>
+    </div>
+    <button class="lightbox-close" (click)="close()" aria-label="Close">×</button>
+  </div>
+</section>

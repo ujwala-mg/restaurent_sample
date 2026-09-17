@@ -1,0 +1,126 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: transparent;
+  transition: background 0.35s ease, border-color 0.35s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.nav--solid {
+  background: rgba(20,17,14,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom-color: var(--line-dark);
+}
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 84px;
+  transition: height 0.3s ease;
+}
+
+.nav--solid .nav-row { height: 70px; }
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.brand-line {
+  font-family: var(--display);
+  color: var(--cream);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.brand-sub {
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  margin-top: 3px;
+}
+
+.links {
+  display: flex;
+  gap: 30px;
+  font-size: 0.86rem;
+}
+
+.links a {
+  color: rgba(244,238,226,0.78);
+  transition: color 0.2s ease;
+}
+.links a:hover { color: var(--cream); }
+
+.cta {
+  padding: 11px 20px;
+  border: 1px solid var(--gold);
+  color: var(--cream);
+  font-size: 0.82rem;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.cta:hover { background: var(--gold); color: var(--charcoal); }
+
+.cta--line {
+  border-color: rgba(244,238,226,0.35);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+.burger span {
+  width: 22px;
+  height: 2px;
+  background: var(--cream);
+}
+
+.mobile-panel {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .links { display: none; }
+  .nav-row > .cta { display: none; }
+  .burger { display: flex; }
+  .nav { background: rgba(20,17,14,0.92); backdrop-filter: blur(10px); }
+
+  .nav--open .mobile-panel {
+    display: block;
+    background: var(--charcoal);
+    padding: 12px 22px 32px;
+    border-top: 1px solid var(--line-dark);
+  }
+  .mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 0;
+  }
+  .mobile-links a {
+    color: var(--cream);
+    font-family: var(--display);
+    font-size: 1.4rem;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .mobile-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .mobile-actions .cta { flex: 1; text-align: center; }
+}

@@ -1,0 +1,46 @@
+<section id="menu" class="menu">
+  <div class="wrap">
+    <div class="menu-head" appReveal>
+      <h2>The Menu</h2>
+      <p class="note">
+        Categories are confirmed from the restaurant. Individual dishes and
+        prices are pending a clear photo of the physical menu — we won't
+        guess at prices, so this section fills in as soon as that's supplied.
+      </p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Menu categories">
+      <button
+        *ngFor="let c of categories"
+        role="tab"
+        [attr.aria-selected]="c.id === active.id"
+        [class.active]="c.id === active.id"
+        (click)="select(c)">
+        {{ c.label }}
+      </button>
+    </div>
+
+    <div class="panel" role="tabpanel">
+      <ng-container *ngIf="!active.pending; else pendingState">
+        <ul class="items">
+          <li *ngFor="let item of active.items">
+            <span class="i-name">{{ item.name }}</span>
+            <span class="i-dots"></span>
+            <span class="i-price">{{ item.price }}</span>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #pendingState>
+        <div class="pending">
+          <p>Dishes for <strong>{{ active.label }}</strong> haven't been added yet.</p>
+          <p class="pending-sub">Send a clear photo of this section of the menu and it'll be added here with real names and prices — nothing invented.</p>
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="menu-actions">
+      <a class="btn btn--solid" [href]="restaurant.phoneHref">Call to Order</a>
+      <a class="btn btn--line" [href]="restaurant.directionsHref" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+  </div>
+</section>

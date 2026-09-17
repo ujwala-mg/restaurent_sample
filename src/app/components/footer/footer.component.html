@@ -1,0 +1,21 @@
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <p class="brand-line">Matsya<br>Amazon Kitchens</p>
+      <p class="tagline">Authentic Andhra flavours and a memorable stop on your journey.</p>
+    </div>
+
+    <nav class="foot-links" aria-label="Footer">
+      <a *ngFor="let l of links" [href]="l.href">{{ l.label }}</a>
+    </nav>
+
+    <div class="foot-contact">
+      <p>{{ restaurant.phone }}</p>
+      <p>{{ restaurant.hoursLabel }}</p>
+      <p>{{ restaurant.address }}</p>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <p>© {{ year }} Matsya Amazon Kitchens</p>
+  </div>
+</footer>

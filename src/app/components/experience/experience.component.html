@@ -1,0 +1,26 @@
+<section id="experience" class="experience">
+  <div class="wrap exp-grid">
+    <div class="exp-copy" appReveal>
+      <h2>Come hungry.<br>Leave happy.</h2>
+      <p>
+        Matsya Amazon Kitchens is built for families on the move — a proper
+        room to sit down in, space for the kids, and parking that doesn't
+        turn the stop into a hassle.
+      </p>
+    </div>
+
+    <div class="exp-media">
+      <div
+        class="tile ph"
+        *ngFor="let f of features; let i = index"
+        [class.ph--charcoal]="f.tone === 'charcoal'"
+        [class.ph--clay]="f.tone === 'clay'"
+        [class.ph--gold]="f.tone === 'gold'"
+        [class.ph--cream]="f.tone === 'cream'"
+        appReveal
+        [style.transition-delay.ms]="i * 70">
+        <span class="ph-label">{{ f.title }}</span>
+      </div>
+    </div>
+  </div>
+</section>

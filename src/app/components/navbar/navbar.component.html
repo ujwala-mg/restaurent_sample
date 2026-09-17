@@ -1,0 +1,28 @@
+<header class="nav" [class.nav--solid]="scrolled" [class.nav--open]="mobileOpen">
+  <div class="wrap nav-row">
+    <a class="brand" href="#top" (click)="closeMobile()">
+      <span class="brand-line">Matsya</span>
+      <span class="brand-sub">Amazon Kitchens</span>
+    </a>
+
+    <nav class="links" aria-label="Primary">
+      <a *ngFor="let l of links" [href]="l.href">{{ l.label }}</a>
+    </nav>
+
+    <a class="cta" [href]="restaurant.directionsHref" target="_blank" rel="noopener">Get Directions</a>
+
+    <button class="burger" (click)="toggleMobile()" [attr.aria-expanded]="mobileOpen" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-panel" *ngIf="mobileOpen">
+    <nav class="mobile-links" aria-label="Mobile">
+      <a *ngFor="let l of links" [href]="l.href" (click)="closeMobile()">{{ l.label }}</a>
+    </nav>
+    <div class="mobile-actions">
+      <a class="cta" [href]="restaurant.phoneHref">Call Now</a>
+      <a class="cta cta--line" [href]="restaurant.directionsHref" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+  </div>
+</header>

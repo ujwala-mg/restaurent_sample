@@ -1,0 +1,27 @@
+.story {
+  padding: 110px 0;
+  background: var(--charcoal);
+}
+
+.story-inner {
+  max-width: 720px;
+}
+
+.kicker {
+  color: var(--gold);
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+}
+
+.story h2 {
+  color: var(--cream);
+  font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.body {
+  color: rgba(244,238,226,0.6);
+  font-size: 1rem;
+  line-height: 1.7;
+}

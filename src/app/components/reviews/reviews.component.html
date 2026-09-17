@@ -1,0 +1,21 @@
+<section class="reviews">
+  <div class="wrap">
+    <div class="stats" #statBlock>
+      <div class="stat">
+        <p class="score">{{ ratings.google.score.toFixed(1) }} ★</p>
+        <p class="count">{{ googleCount | number }}+ {{ ratings.google.label }}</p>
+      </div>
+      <div class="stat">
+        <p class="score">{{ ratings.tripadvisor.score.toFixed(1) }} ★</p>
+        <p class="count">{{ tripCount }} {{ ratings.tripadvisor.label }}</p>
+      </div>
+    </div>
+
+    <div class="review-grid">
+      <article class="review-card" *ngFor="let r of reviews" appReveal>
+        <p class="quote">"{{ r.quote }}"</p>
+        <p class="who"><span class="name">{{ r.name }}</span><span class="src">{{ r.source }}</span></p>
+      </article>
+    </div>
+  </div>
+</section>
