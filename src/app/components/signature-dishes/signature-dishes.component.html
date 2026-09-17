@@ -1,21 +1,47 @@
 <section id="food" class="dishes">
-  <div class="wrap">
-    <div class="dishes-head" appReveal>
-      <h2>The flavours that<br>bring you back.</h2>
-      <p class="groups">{{ groups.join(' · ') }}</p>
-    </div>
+    <div class="wrap">
 
-    <div class="dish-list">
-      <article class="dish-row" *ngFor="let d of dishes; let i = index" appReveal [style.transition-delay.ms]="i * 80">
-        <div class="dish-media ph" [class.ph--clay]="i % 2 === 0" [class.ph--gold]="i % 2 !== 0">
-          <span class="ph-label">{{ d.name }} — photo pending</span>
+        <div class="dishes-head" appReveal>
+            <h2>
+                The flavours that<br />
+                bring you back.
+            </h2>
+
+            <p class="groups">
+                {{ groups.join(' · ') }}
+            </p>
         </div>
-        <div class="dish-copy">
-          <span class="dish-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
-          <h3>{{ d.name }}</h3>
-          <p>{{ d.note }}</p>
+
+        <div class="dish-list">
+
+            <article class="dish-row"
+                     *ngFor="let d of dishes; let i = index"
+                     appReveal
+                     [style.transition-delay.ms]="i * 80">
+
+                <div class="dish-media"
+                     [class.dish-media--clay]="i % 2 === 0"
+                     [class.dish-media--gold]="i % 2 !== 0">
+                    <img [src]="d.image"
+                         [alt]="d.name"
+                         loading="lazy" />
+                </div>
+
+                <div class="dish-copy">
+
+                    <span class="dish-index">
+                        {{ (i + 1).toString().padStart(2, '0') }}
+                    </span>
+
+                    <h3>{{ d.name }}</h3>
+
+                    <p>{{ d.note }}</p>
+
+                </div>
+
+            </article>
+
         </div>
-      </article>
+
     </div>
-  </div>
 </section>
